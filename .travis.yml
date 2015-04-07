@@ -4,12 +4,11 @@ virtualenv:
   system_site_packages: true
 before_install:
   # For Pandas version 0.14.
-  # See https://launchpad.net/~pythonxy/+archive/ubuntu/pythonxy-devel?field.series_filter=saucy
   - sudo cat /etc/apt/sources.list /etc/apt/sources.list.d/*
-  - sudo add-apt-repository "deb http://ppa.launchpad.net/pythonxy/pythonxy-devel/ubuntu saucy main" -y
+  - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ utopic main restricted universe" -y
   - sudo apt-get update -qq
   - sudo apt-cache policy python-pandas python-pandas-lib python-numpy
-  - sudo apt-get install python-numpy python-pandas python-pandas-lib python-tables python-yaml
+  - sudo apt-get install python-numpy python-pandas python-tables python-yaml
 install:
   - pip install flake8  # Not yet available in Debian stable
   - pip install sas7bdat
