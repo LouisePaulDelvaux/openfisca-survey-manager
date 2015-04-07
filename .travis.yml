@@ -4,11 +4,11 @@ virtualenv:
   system_site_packages: true
 before_install:
   # For Pandas version 0.14.
-  - sudo cat /etc/apt/sources.list /etc/apt/sources.list.d/*
+  # - sudo cat /etc/apt/sources.list /etc/apt/sources.list.d/*
   # - sudo add-apt-repository "deb http://ppa.launchpad.net/pythonxy/pythonxy-devel/ubuntu raring main" -y
   # - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ utopic main restricted universe" -y
-  - sudo add-apt-repository "deb http://neurodeb.pirsquared.org data main" -y
-  - sudo add-apt-repository "deb http://neurodeb.pirsquared.org precise main" -y
+  - wget -O- http://neuro.debian.net/lists/precise.us-ca.libre | sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
+  - sudo apt-key adv --recv-keys --keyserver hkp://pgp.mit.edu:80 0xA5D32F012649A5A9
   - sudo apt-get update -qq
   # - sudo apt-cache policy python-pip
   # - sudo apt-cache policy python-pandas python-pandas-lib python-numpy
